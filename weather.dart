@@ -18,7 +18,7 @@ class _WeatherAppState extends State<WeatherApp> {
   }
 
   Widget build(context) => Column(children: [
-    TextField(controller: c),
+    TextField(decoration: InputDecoration(labelText: "enter place"), controller: c),
     ElevatedButton(onPressed: getW, child: Text('Go')),
     Text(r)
   ]);
