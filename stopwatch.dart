@@ -13,7 +13,6 @@ class _StopwatchAppState extends State<StopwatchApp> {
            '${((ms ~/ 1000) % 60).toString().padLeft(2, '0')}:'
            '${((ms ~/ 10) % 100).toString().padLeft(2, '0')}';
   }
-  void dispose() { t?.cancel(); super.dispose(); }
   Widget build(BuildContext c) => Scaffold(
     body: Center(child: Column(mainAxisSize: MainAxisSize.min, children: [
       Text(time, style: TextStyle(fontSize: 30)),
@@ -25,8 +24,8 @@ class _StopwatchAppState extends State<StopwatchApp> {
           }
         }, child: Text(sw.elapsedMilliseconds > 0 && !sw.isRunning ? 'Resume' : 'Start')),
         TextButton(onPressed: sw.isRunning ? () => setState(sw.stop) : null, child: Text('Stop')),
-        TextButton(onPressed: () => setState(() { sw.reset(); sw.stop(); }), child: Text('Reset')),
+        TextButton(onPressed: () => setState(() { sw.reset();}), child: Text('Reset')),
       ])
-  ])),
+    ])),
   );
 }
